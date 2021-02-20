@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.cevher.spark</groupId>
+    <artifactId>spark-tutorial</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+    <name>Spark Tutorial Parent POM</name>
+    <description>Apache Spark Tutorial - Scala, Python, Java</description>
+
+    <developers>
+        <developer>
+            <id>cevher</id>
+            <name>Mehmet Cevheri</name>
+            <email>cevheribozoglan@gmail.com</email>
+            <url>https://github.com/cevheri</url>
+        </developer>
+
+        <developer>
+            <id>abdullah</id>
+            <name>Abdullah Kaya</name>
+            <email>abdullahk.0634@gmail.com</email>
+            <url>https://github.com/abdullahk0634</url>
+        </developer>
+    </developers>
+
+    <modules>
+
+        <module>java</module>
+        <module>python</module>
+        <module>scala</module>
+
+    </modules>
+
+    <properties>
+
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.version>3.6.3</maven.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <spark.version>3.0.1</spark.version>
+        <scala.version>2.12.7</scala.version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <scala.compat.version>2.12</scala.compat.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+        <hadoop.version>3.2.2</hadoop.version>
+        <yarn.version>${hadoop.version}</yarn.version>
+        <zookeeper.version>3.6.2</zookeeper.version>
+        <hive.group>org.apache.hive</hive.group>
+        <hive.classifier>core</hive.classifier>
+        <hive.version>2.3.8</hive.version>
+        <hive23.version>2.3.8</hive23.version>
+        <hive.version.short>2.3</hive.version.short>
+        <kafka.version>2.6.0</kafka.version>
+        <derby.version>10.14.2.0</derby.version>
+        <fasterxml.jackson.version>2.11.4</fasterxml.jackson.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- spark dependency-->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.12</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.12</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <!-- scala dependency-->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_${scala.compat.version}</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-parser-combinators_${scala.compat.version}</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-swing_${scala.compat.version}</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+    </dependencies>
+
+
+
+
+</project>

@@ -1,0 +1,14 @@
+
+# general
+/.idea/
+spark-tutorial.iml
+
+# scala
+/scala/target/
+
+# java
+/java/target/
+
+# python
+/python/target/
+/python/spark-tutorial-python.iml
