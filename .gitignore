@@ -5,9 +5,11 @@ spark-tutorial.iml
 
 # scala
 /scala/target/
+/scala/spark-tutorial-scala.iml
 
 # java
 /java/target/
+/java/spark-tutorial-java.iml
 
 # python
 /python/target/
