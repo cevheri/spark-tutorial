@@ -3,7 +3,7 @@ package org.cevher.spark.scala.groupby
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 //noinspection DuplicatedCode
-object GroupByExample {
+object Example01 {
 
   def main(args: Array[String]): Unit = {
 
