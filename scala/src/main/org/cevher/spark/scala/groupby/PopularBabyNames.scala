@@ -1,5 +1,9 @@
 package org.cevher.spark.scala.groupby
 
+import org.apache.spark.sql
+import org.apache.spark.sql.catalyst.dsl.expressions.{DslExpression, StringToAttributeConversionHelper}
+import org.apache.spark.sql.functions.col
+import org.apache.spark.sql.types.{DateType, IntegerType, StringType}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 //noinspection DuplicatedCode
@@ -21,7 +25,7 @@ object PopularBabyNames {
     // |-- Rank: string (nullable = true)
 
     println("== count() ==")
-    val a = df.groupBy("Year of Birth","Gender").count()
+    val a = df.groupBy("Year of Birth", "Gender").count()
     a.show()
     //+-------------+------+-----+
     //|Year of Birth|Gender|count|
@@ -41,6 +45,45 @@ object PopularBabyNames {
     //|2011         |MALE  |2862 |
     //|2014         |FEMALE|3027 |
     //+-------------+------+-----+
+
+    // important !!!!!!!!!!!!!!!!!!!!!!!!!!1
+    println("== withColumn() ==")
+    val b = df.withColumn("Year of Birth", col("Year of Birth").cast(IntegerType))
+      .withColumn("Gender", col("Gender").cast(StringType))
+      .withColumn("Count", col("Count").cast(IntegerType))
+
+    println("== printSchema ==")
+    b.printSchema
+    //    root
+    //    |-- Year of Birth: integer (nullable = true)
+    //    |-- Gender: string (nullable = true)
+    //    |-- Ethnicity: string (nullable = true)
+    //    |-- Child's First Name: string (nullable = true)
+    //    |-- Count: integer (nullable = true)
+    //    |-- Rank: string (nullable = true)
+
+    println("== sql sum groupby ==")
+    val c = b.groupBy("Year of Birth", "Gender").sum("Count")
+    c.show()
+    //+-------------+------+----------+
+    //|Year of Birth|Gender|sum(Count)|
+    //+-------------+------+----------+
+    //|         2016|  MALE|     38380|
+    //|         2015|  MALE|     39008|
+    //|         2017|  MALE|     36498|
+    //|         2012|FEMALE|     88685|
+    //|         2012|  MALE|    114707|
+    //|         2015|FEMALE|     30592|
+    //|         2011|  MALE|    113692|
+    //|         2014|  MALE|    106749|
+    //|         2017|FEMALE|     28897|
+    //|         2014|FEMALE|     85524|
+    //|         2013|FEMALE|     84835|
+    //|         2016|FEMALE|     30360|
+    //|         2011|FEMALE|     88213|
+    //|         2013|  MALE|    108507|
+    //+-------------+------+----------+
+
 
   }
 
