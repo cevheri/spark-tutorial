@@ -1,9 +1,7 @@
 package org.cevher.spark.scala.groupby
 
-import org.apache.spark.sql
-import org.apache.spark.sql.catalyst.dsl.expressions.{DslExpression, StringToAttributeConversionHelper}
 import org.apache.spark.sql.functions.col
-import org.apache.spark.sql.types.{DateType, IntegerType, StringType}
+import org.apache.spark.sql.types.{IntegerType, StringType}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 //noinspection DuplicatedCode
@@ -11,6 +9,7 @@ object PopularBabyNames {
 
   def main(args: Array[String]): Unit = {
 
+    // reference data : https://data.cityofnewyork.us/Health/Popular-Baby-Names/25th-nujf
     val spark: SparkSession = SparkSession.builder.appName("csv-scala-demo").getOrCreate
     val df: DataFrame = spark.read.option("header", "true").csv("file:///home/cevher/projects/spark-tutorial/files/Popular_Baby_Names.csv")
 
