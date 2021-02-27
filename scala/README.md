@@ -7,7 +7,7 @@
 ### run spark 
 mvn clean package
 
-spark-submit --class org.cevher.spark.scala.FirstScala scala/target/spark-tutorial-scala-0.0.1.jar
+spark-submit --class org.cevher.spark.scala.streaming.KafkaConsumer scala/target/spark-tutorial-scala-0.0.1.jar
 
 
 
