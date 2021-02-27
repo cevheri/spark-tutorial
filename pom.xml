@@ -17,7 +17,6 @@
             <email>cevheribozoglan@gmail.com</email>
             <url>https://github.com/cevheri</url>
         </developer>
-
         <developer>
             <id>abdullah</id>
             <name>Abdullah Kaya</name>
@@ -27,11 +26,9 @@
     </developers>
 
     <modules>
-
         <module>java</module>
         <module>python</module>
         <module>scala</module>
-
     </modules>
 
     <properties>
@@ -40,75 +37,45 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <maven.version>3.6.3</maven.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <spark.version>3.0.1</spark.version>
-        <scala.version>2.12.7</scala.version>
-        <scala.binary.version>2.12</scala.binary.version>
-        <scala.compat.version>2.12</scala.compat.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <spark.version>2.4.0</spark.version>
         <slf4j.version>1.7.30</slf4j.version>
-        <log4j.version>1.2.17</log4j.version>
-        <hadoop.version>3.2.2</hadoop.version>
-        <yarn.version>${hadoop.version}</yarn.version>
-        <zookeeper.version>3.6.2</zookeeper.version>
-        <hive.group>org.apache.hive</hive.group>
-        <hive.classifier>core</hive.classifier>
-        <hive.version>2.3.8</hive.version>
-        <hive23.version>2.3.8</hive23.version>
-        <hive.version.short>2.3</hive.version.short>
-        <kafka.version>2.6.0</kafka.version>
-        <derby.version>10.14.2.0</derby.version>
-        <fasterxml.jackson.version>2.11.4</fasterxml.jackson.version>
+        <fasterxml.jackson.version>2.12.0</fasterxml.jackson.version>
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+<!--        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>-->
+
+
+<!--        <log4j.version>1.2.17</log4j.version>-->
+<!--        <hadoop.version>3.2.2</hadoop.version>-->
+<!--        <yarn.version>${hadoop.version}</yarn.version>-->
+<!--        <zookeeper.version>3.6.2</zookeeper.version>-->
+<!--        <hive.group>org.apache.hive</hive.group>-->
+<!--        <hive.classifier>core</hive.classifier>-->
+<!--        <hive.version>2.3.8</hive.version>-->
+<!--        <hive23.version>2.3.8</hive23.version>-->
+<!--        <hive.version.short>2.3</hive.version.short>-->
+<!--        <kafka.version>2.6.0</kafka.version>-->
+<!--        <derby.version>10.14.2.0</derby.version>-->
+
     </properties>
 
     <dependencies>
 
-        <!-- spark dependency-->
         <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.12</artifactId>
-            <version>${spark.version}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.12</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
-
-        <!-- scala dependency-->
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.scala-lang.modules</groupId>
-            <artifactId>scala-xml_${scala.compat.version}</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.scala-lang.modules</groupId>
-            <artifactId>scala-parser-combinators_${scala.compat.version}</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.scala-lang.modules</groupId>
-            <artifactId>scala-swing_${scala.compat.version}</artifactId>
-            <version>2.0.3</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${fasterxml.jackson.version}</version>
         </dependency>
 
     </dependencies>
-
-
-
 
 </project>
