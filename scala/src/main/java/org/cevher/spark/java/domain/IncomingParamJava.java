@@ -2,7 +2,7 @@ package org.cevher.spark.java.domain;
 
 import java.io.Serializable;
 
-public class IncomingParam
+public class IncomingParamJava
         implements Serializable {
 
     private String name;

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Incoming implements Serializable {
+public class IncomingJava implements Serializable {
     private String applicationName;
     private String applicationVersion;
     private String applicationInstanceName;
@@ -24,49 +24,24 @@ public class Incoming implements Serializable {
     private String exceptionStackTrace;
     private String externalData;
 
-    public Incoming(String applicationName, String applicationVersion, String applicationInstanceName, String applicationInstanceIp, String startTime, String endTime, String url, String requestType, String className, String methodName, String userLoginName, String userSessionId, String exitCode, String exceptionType, String exceptionMessage, String exceptionStackTrace, String externalData, ArrayList<IncomingParam> inParams, ArrayList<IncomingParam> outParams) {
-        this.applicationName = applicationName;
-        this.applicationVersion = applicationVersion;
-        this.applicationInstanceName = applicationInstanceName;
-        this.applicationInstanceIp = applicationInstanceIp;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.url = url;
-        this.requestType = requestType;
-        this.className = className;
-        this.methodName = methodName;
-        this.userLoginName = userLoginName;
-        this.userSessionId = userSessionId;
-        this.exitCode = exitCode;
-        this.exceptionType = exceptionType;
-        this.exceptionMessage = exceptionMessage;
-        this.exceptionStackTrace = exceptionStackTrace;
-        this.externalData = externalData;
-//        this.inParams = inParams;
-//        this.outParams = outParams;
-    }
-
-    public Incoming() {
-    }
-
     @JsonIgnore
-    private ArrayList<IncomingParam> inParams = new ArrayList<>();
+    private ArrayList<IncomingParamJava> inParams = new ArrayList<>();
     @JsonIgnore
-    private ArrayList<IncomingParam> outParams = new ArrayList<>();
+    private ArrayList<IncomingParamJava> outParams = new ArrayList<>();
 
-    public ArrayList<IncomingParam> getInParams() {
+    public ArrayList<IncomingParamJava> getInParams() {
         return inParams;
     }
 
-    public void setInParams(ArrayList<IncomingParam> inParams) {
+    public void setInParams(ArrayList<IncomingParamJava> inParams) {
         this.inParams = inParams;
     }
 
-    public ArrayList<IncomingParam> getOutParams() {
+    public ArrayList<IncomingParamJava> getOutParams() {
         return outParams;
     }
 
-    public void setOutParams(ArrayList<IncomingParam> outParams) {
+    public void setOutParams(ArrayList<IncomingParamJava> outParams) {
         this.outParams = outParams;
     }
 // Getter Methods
