@@ -61,7 +61,7 @@ object PopularBabyNames {
     //    |-- Count: integer (nullable = true)
     //    |-- Rank: string (nullable = true)
 
-    println("== sql sum groupby ==")
+    println("== sql sum org.cevher.spark.scala.groupby ==")
     val c = b.groupBy("Year of Birth", "Gender").sum("Count")
     c.show()
     //+-------------+------+----------+
