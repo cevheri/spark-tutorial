@@ -8,7 +8,9 @@ object PopularBabyNames {
 
     // reference data : https://data.cityofnewyork.us/Health/Popular-Baby-Names/25th-nujf
     val spark: SparkSession = SparkSession.builder.appName("Popular_Baby_Names").getOrCreate
-    val df: DataFrame = spark.read.option("header", "true").csv("file:///home/cevher/projects/spark-tutorial/files/Popular_Baby_Names.csv")
+    //val df: DataFrame = spark.read.option("header", "true").csv("file:///home/cevher/projects/spark-tutorial/files/Popular_Baby_Names.csv")
+    val df: DataFrame = spark.read.option("header", "true").csv("file:///home/cevher/Downloads/Fire_Incident_Dispatch_Data.csv")
+    val df1 = spark.read.textFile("/home/cevher/Downloads/Fire_Incident_Dispatch_Data.csv")
 
     // df register
     println("== df register == ")
