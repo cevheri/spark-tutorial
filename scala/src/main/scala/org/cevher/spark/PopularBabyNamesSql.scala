@@ -1,10 +1,10 @@
-package org.cevher.spark.scala.sql
+package org.cevher.spark
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
-object PopularBabyNames {
+object PopularBabyNamesSql {
 
-  def main(args: Array[String]): Unit ={
+  def main(args: Array[String]): Unit = {
 
     // reference data : https://data.cityofnewyork.us/Health/Popular-Baby-Names/25th-nujf
     val spark: SparkSession = SparkSession.builder.appName("Popular_Baby_Names").getOrCreate

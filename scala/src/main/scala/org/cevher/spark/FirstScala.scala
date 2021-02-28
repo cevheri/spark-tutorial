@@ -1,4 +1,4 @@
-package org.cevher.spark.scala
+package org.cevher.spark
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
 

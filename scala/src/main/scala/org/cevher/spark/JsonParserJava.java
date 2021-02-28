@@ -1,7 +1,6 @@
-package org.cevher.spark.java.util;
+package org.cevher.spark;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.cevher.spark.java.domain.IncomingJava;
 
 import java.io.Serializable;
 

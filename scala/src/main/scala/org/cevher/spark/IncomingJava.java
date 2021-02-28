@@ -1,4 +1,4 @@
-package org.cevher.spark.java.domain;
+package org.cevher.spark;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,6 +26,7 @@ public class IncomingJava implements Serializable {
 
     @JsonIgnore
     private ArrayList<IncomingParamJava> inParams = new ArrayList<>();
+
     @JsonIgnore
     private ArrayList<IncomingParamJava> outParams = new ArrayList<>();
 

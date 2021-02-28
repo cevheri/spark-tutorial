@@ -22,6 +22,19 @@
         <scala.binary.version>2.12</scala.binary.version>
         <scala.compat.version>2.12</scala.compat.version>
         <scala-lang.modules.version>1.1.1</scala-lang.modules.version>
+
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <spark.version>2.4.0</spark.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <fasterxml.jackson.version>2.12.0</fasterxml.jackson.version>
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
     <repositories>
@@ -97,13 +110,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <!--                <version>${scala-maven-compiler-plugin.version}</version>-->
-                <version>4.4.0</version>
+                <version>${scala-maven-compiler-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -119,7 +131,6 @@
                     </args>
                 </configuration>
             </plugin>
-
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -128,7 +139,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.cevher.spark.scala.ScalaApplication</mainClass>
+                            <mainClass>org.cevher.spark.KafkaFlameConsumer</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

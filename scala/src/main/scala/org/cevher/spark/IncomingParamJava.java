@@ -1,4 +1,4 @@
-package org.cevher.spark.java.domain;
+package org.cevher.spark;
 
 import java.io.Serializable;
 

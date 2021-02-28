@@ -1,4 +1,4 @@
-package org.cevher.spark.scala
+package org.cevher.spark
 
 object ScalaApplication {
   def main(args: Array[String]): Unit = {

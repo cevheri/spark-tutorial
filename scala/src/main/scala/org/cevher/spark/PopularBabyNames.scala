@@ -1,4 +1,4 @@
-package org.cevher.spark.scala.groupby
+package org.cevher.spark
 
 import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.types.{IntegerType, StringType}
