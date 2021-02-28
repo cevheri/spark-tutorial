@@ -1,0 +1,21 @@
+{
+  "applicationName": "FlowInformation",
+  "applicationVersion": "3.110.01",
+  "applicationInstanceName": "Flame",
+  "applicationInstanceIp": null,
+  "startTime": "2021-02-23T13:37:45.5537429Z",
+  "endTime": "2021-02-23T13:39:24.7071822Z",
+  "url": "",
+  "requestType": "",
+  "className": "S",
+  "methodName": "saveData",
+  "userLoginName": "user_001",
+  "userSessionId": "0",
+  "exitCode": "SUCCESS",
+  "exceptionType": "",
+  "exceptionMessage": "",
+  "exceptionStackTrace": "",
+  "externalData": "{\r\n  \"id\": \"be3bda5f-ccb7-419b-956c-c68467eefe8b\",\r\n  \"parentId\": \"96653047-edcc-4d8a-9616-ee0f53a24bce\",\r\n  \"objectInstanceId\": \"40E068CB2BF35A98DCF6DDF5AB1F87CF\",\r\n  \"messages\": []\r\n}",
+  "inParams": [],
+  "outParams": null
+}

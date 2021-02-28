@@ -1,4 +1,4 @@
-package org.cevher.spark.java;
+package org.cevher.spark.ex;
 
 
 public class FirstJava {

@@ -16,14 +16,106 @@
     <name>Spark Scala Tutorial</name>
     <description>Apache Spark Tutorial - Scala Lang</description>
 
+    <repositories>
+        <repository>
+            <id>DataStax-Repo</id>
+            <url>https://repo.datastax.com/public-repos/</url>
+        </repository>
+    </repositories>
+
     <properties>
-    <scala-maven-compiler-plugin.version>4.4.0</scala-maven-compiler-plugin.version>
+        <scala.version>2.11</scala.version>
+        <scala-maven-compiler-plugin.version>4.4.0</scala-maven-compiler-plugin.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <scala.compat.version>2.11</scala.compat.version>
+        <scala-lang.modules.version>1.1.1</scala-lang.modules.version>
+
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <spark.version>2.4.0</spark.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <fasterxml.jackson.version>2.12.0</fasterxml.jackson.version>
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
+
+
+
+    <dependencies>
+
+        <!-- scala dependency-->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_${scala.compat.version}</artifactId>
+            <version>${scala-lang.modules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-parser-combinators_${scala.compat.version}</artifactId>
+            <version>${scala-lang.modules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-swing_${scala.compat.version}</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+        <!-- Cassandra Dependency -->
+        <dependency>
+            <groupId>com.datastax.spark</groupId>
+            <artifactId>spark-cassandra-connector_${scala.version}</artifactId>
+            <version>2.4.0</version> <!-- Check actual version in maven repo -->
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- spark scala dependency-->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <!--Kafka Spark Streaming with Scala Dependency -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-10_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector -->
+        <dependency>
+            <groupId>org.mongodb.spark</groupId>
+            <artifactId>mongo-spark-connector_2.11</artifactId>
+            <version>2.3.5</version>
+        </dependency>
+
+
+    </dependencies>
 
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
-        <sourceDirectory>src/main</sourceDirectory>
-        <testSourceDirectory>src/test</testSourceDirectory>
+        <sourceDirectory>src/main/scala</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -48,6 +140,28 @@
                         <arg>-nobootcp</arg>
                     </args>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.cevher.spark.KafkaFlameConsumer</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
