@@ -16,11 +16,18 @@
     <name>Spark Scala Tutorial</name>
     <description>Apache Spark Tutorial - Scala Lang</description>
 
+    <repositories>
+        <repository>
+            <id>DataStax-Repo</id>
+            <url>https://repo.datastax.com/public-repos/</url>
+        </repository>
+    </repositories>
+
     <properties>
         <scala.version>2.11</scala.version>
         <scala-maven-compiler-plugin.version>4.4.0</scala-maven-compiler-plugin.version>
-        <scala.binary.version>2.12</scala.binary.version>
-        <scala.compat.version>2.12</scala.compat.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <scala.compat.version>2.11</scala.compat.version>
         <scala-lang.modules.version>1.1.1</scala-lang.modules.version>
 
         <encoding>UTF-8</encoding>
@@ -37,12 +44,7 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>DataStax-Repo</id>
-            <url>https://repo.datastax.com/public-repos/</url>
-        </repository>
-    </repositories>
+
 
     <dependencies>
 
@@ -98,6 +100,14 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming-kafka-0-10_${scala.version}</artifactId>
             <version>${spark.version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector -->
+        <dependency>
+            <groupId>org.mongodb.spark</groupId>
+            <artifactId>mongo-spark-connector_2.11</artifactId>
+            <version>2.3.5</version>
         </dependency>
 
 

@@ -11,18 +11,23 @@ import org.apache.spark.streaming.kafka010.KafkaUtils
 import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
+import com.mongodb.spark._
+
 object KafkaFlameConsumer {
 
   private val EXTRA_CLASS_PATH = "spark.executor.extraClassPath"
   private val CURRENT_DIRECTORY = "./"
   private val SERVER_ADDRESS = "localhost"
   private val SERVER_PORT = "9042"
+
   def main(args: Array[String]): Unit = {
 
     val sparkConfig = new SparkConf()
       .setAppName("my_test")
       .set("spark.cassandra.connection.host", SERVER_ADDRESS)
       .set("spark.cassandra.connection.port", SERVER_PORT)
+      .set("spark.mongodb.input.uri", "mongodb://127.0.0.1/test.flowinformation")
+      .set("spark.mongodb.output.uri", "mongodb://127.0.0.1/test.flowinformation")
       .set(EXTRA_CLASS_PATH, CURRENT_DIRECTORY)
 
     val spark = SparkSession.builder
@@ -100,6 +105,14 @@ object KafkaFlameConsumer {
         .format("org.apache.spark.sql.cassandra")
         .options(Map("table" -> "flowinformation", "keyspace" -> "hbys_log"))
         .mode("append")
+        .save()
+
+
+      df.write
+        .format("mongo")
+        .mode("append")
+        .option("database", "test")
+        .option("collection", "flowinformation")
         .save()
 
     }
