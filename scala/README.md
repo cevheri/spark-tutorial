@@ -1,7 +1,7 @@
 # Apache Spark Scala Tutorial
 
 
-
+# Setup Scala 2.11.8
 
 
 ### run spark 
